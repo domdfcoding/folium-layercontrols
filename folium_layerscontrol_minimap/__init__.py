@@ -31,3 +31,54 @@ __copyright__: str = "2026 Dominic Davis-Foster"
 __license__: str = "MIT License"
 __version__: str = "0.0.0"
 __email__: str = "dominic@davis-foster.co.uk"
+
+# 3rd party
+from folium import LayerControl, Template
+from folium.elements import JSCSSMixin
+
+__all__ = ["MinimapLayerControl"]
+
+
+class MinimapLayerControl(JSCSSMixin, LayerControl):
+
+	default_js = [
+			(
+					"layerscontrol-minimap-js",
+					"https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/L.Control.Layers.Minimap.min.js",
+					),
+			]
+
+	default_css = [
+			(
+					"layerscontrol-minimap-css",
+					"https://cdn.jsdelivr.net/npm/leaflet.layerscontrol-minimap@1.0.21/control.layers.minimap.min.css",
+					),
+			]
+	_template = Template(
+			"""
+        {% macro script(this,kwargs) %}
+            var {{ this.get_name() }}_layers = {
+                base_layers : {
+                    {%- for key, val in this.base_layers.items() %}
+                    {{ key|tojson }} : {{val}},
+                    {%- endfor %}
+                },
+                overlays :  {
+                    {%- for key, val in this.overlays.items() %}
+                    {{ key|tojson }} : {{val}},
+                    {%- endfor %}
+                },
+            };
+            let {{ this.get_name() }} = L.control.layers.minimap.toggle(
+                {{ this.get_name() }}_layers.base_layers,
+                {{ this.get_name() }}_layers.overlays,
+                {{ this.options|tojavascript }}
+            ).addTo({{this._parent.get_name()}});
+
+            {%- if this.draggable %}
+            new L.Draggable({{ this.get_name() }}.getContainer()).enable();
+            {%- endif %}
+
+        {% endmacro %}
+        """,
+			)
