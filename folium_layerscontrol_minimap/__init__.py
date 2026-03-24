@@ -2,7 +2,7 @@
 #
 #  __init__.py
 """
-Folium addon for leaflet.layerscontrol-minimap
+Folium addon for leaflet.layerscontrol-minimap .
 """
 #
 #  Copyright © 2026 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -35,13 +35,17 @@ __version__: str = "0.0.0"
 __email__: str = "dominic@davis-foster.co.uk"
 
 # 3rd party
-from folium import LayerControl, Template
+from folium import LayerControl
 from folium.elements import JSCSSMixin
+from folium.template import Template
 
 __all__ = ["MinimapLayerControl"]
 
 
 class MinimapLayerControl(JSCSSMixin, LayerControl):
+	"""
+	Leaflet layer control widget which displays minimap previews of the basemap layers.
+	"""
 
 	default_js = [
 			(
