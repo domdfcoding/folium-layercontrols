@@ -6,7 +6,7 @@ author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
 version: '0.0.0'
-license: 'MIT'
+license: 'BSD-2-Clause'
 short_desc: 'Folium addon for leaflet.layerscontrol-minimap'
 
 enable_conda: false

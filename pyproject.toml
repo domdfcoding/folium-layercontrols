@@ -27,7 +27,7 @@ base-classifiers = []
 python-versions = [ "3.10", "3.11", "3.12", "3.13",]
 python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
-license-key = "MIT"
+license-key = "BSD-2-Clause"
 package = "folium_layerscontrol_minimap"
 
 [tool.importcheck]
