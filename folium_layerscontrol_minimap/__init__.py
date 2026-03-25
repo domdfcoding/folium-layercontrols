@@ -47,6 +47,8 @@ class MinimapLayerControl(JSCSSMixin, LayerControl):
 	Leaflet layer control widget which displays minimap previews of the basemap layers.
 	"""
 
+	control_class_name = "L.control.layers.minimap"
+
 	default_js = [
 			(
 					"layerscontrol-minimap-js",
@@ -75,7 +77,7 @@ class MinimapLayerControl(JSCSSMixin, LayerControl):
                     {%- endfor %}
                 },
             };
-            let {{ this.get_name() }} = L.control.layers.minimap.toggle(
+            let {{ this.get_name() }} = {{ this.control_class_name }}(
                 {{ this.get_name() }}_layers.base_layers,
                 {{ this.get_name() }}_layers.overlays,
                 {{ this.options|tojavascript }}
