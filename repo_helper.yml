@@ -20,3 +20,8 @@ python_versions:
   - 3.11
   - 3.12
   - 3.13
+
+
+manifest_additional:
+ - include folium_layerscontrol_minimap/*.js
+ - include folium_layerscontrol_minimap/*.css

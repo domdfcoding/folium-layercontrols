@@ -29,6 +29,7 @@ python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "BSD-2-Clause"
 package = "folium_layerscontrol_minimap"
+additional-files = [ "include folium_layerscontrol_minimap/*.js", "include folium_layerscontrol_minimap/*.css",]
 
 [tool.importcheck]
 
