@@ -25,3 +25,10 @@ python_versions:
 manifest_additional:
  - include folium_layerscontrol_minimap/*.js
  - include folium_layerscontrol_minimap/*.css
+
+extra_formate_deps:
+ - formate-js>=0.1.0
+
+extra_formate_types:
+ - javascript
+ - ts
