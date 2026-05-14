@@ -35,4 +35,4 @@ __version__: str = "0.1.0a1"
 __email__: str = "dominic@davis-foster.co.uk"
 
 # TODO: combine minimap with grouped control
-# TODO: toggle version of "normal" layer control
+# TODO: styling for grouped and "normal" toggle controls to keep button (maybe as an option?)
