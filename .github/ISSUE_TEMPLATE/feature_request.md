@@ -20,7 +20,7 @@ assignees: domdfcoding
 
   * Operating System:
   * Python:
-  * folium-layerscontrol-minimap:
+  * folium-layercontrols:
 
 
 ## Other Additional Information:

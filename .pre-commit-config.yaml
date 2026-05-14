@@ -54,7 +54,7 @@ repos:
    rev: v0.5.0
    hooks:
     - id: ensure-dunder-all
-      files: ^folium_layerscontrol_minimap/.*\.py$
+      files: ^folium_layercontrols/.*\.py$
 
  - repo: https://github.com/domdfcoding/flake2lint
    rev: v0.4.3
@@ -107,6 +107,6 @@ repos:
    hooks:
     - id: dep_checker
       args:
-       - folium_layerscontrol_minimap
+       - folium_layercontrols
 
 # Custom hooks can be added below this comment

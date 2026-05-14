@@ -3,9 +3,9 @@ requires = [ "whey",]
 build-backend = "whey"
 
 [project]
-name = "folium-layerscontrol-minimap"
+name = "folium-layercontrols"
 version = "0.1.0a1"
-description = "Folium addon for leaflet.layerscontrol-minimap"
+description = "Folium addon for custom layer controls"
 readme = "README.rst"
 keywords = []
 dynamic = [ "requires-python", "classifiers", "dependencies",]
@@ -18,9 +18,9 @@ name = "Dominic Davis-Foster"
 email = "dominic@davis-foster.co.uk"
 
 [project.urls]
-Homepage = "https://github.com/domdfcoding/folium-layerscontrol-minimap"
-"Issue Tracker" = "https://github.com/domdfcoding/folium-layerscontrol-minimap/issues"
-"Source Code" = "https://github.com/domdfcoding/folium-layerscontrol-minimap"
+Homepage = "https://github.com/domdfcoding/folium-layercontrols"
+"Issue Tracker" = "https://github.com/domdfcoding/folium-layercontrols/issues"
+"Source Code" = "https://github.com/domdfcoding/folium-layercontrols"
 
 [tool.whey]
 base-classifiers = [ "Typing :: Typed",]
@@ -28,8 +28,8 @@ python-versions = [ "3.10", "3.11", "3.12", "3.13",]
 python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "BSD-2-Clause"
-package = "folium_layerscontrol_minimap"
-additional-files = [ "include folium_layerscontrol_minimap/*.js", "include folium_layerscontrol_minimap/*.css",]
+package = "folium_layercontrols"
+additional-files = [ "include folium_layercontrols/*.js", "include folium_layercontrols/*.css",]
 
 [tool.importcheck]
 

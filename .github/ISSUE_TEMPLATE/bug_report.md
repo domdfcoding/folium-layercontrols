@@ -41,7 +41,7 @@ If possible, please include a small, self-contained reproduction.
 
   * Operating System:
   * Python:
-  * folium-layerscontrol-minimap:
+  * folium-layercontrols:
 
 ## Installation source
 <!-- e.g. GitHub repository, GitHub Releases, PyPI/pip, Anaconda/conda -->

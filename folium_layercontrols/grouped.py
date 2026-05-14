@@ -36,7 +36,7 @@ from folium.template import Template
 from folium.utilities import TypeJsonValue
 
 # this package
-from folium_layerscontrol_minimap import __version__
+from folium_layercontrols import __version__
 
 __all__ = ["GroupedLayerControl", "ToggleGroupedLayerControl"]
 
@@ -137,6 +137,6 @@ class ToggleGroupedLayerControl(GroupedLayerControl):
 	default_js = GroupedLayerControl.default_js + [
 			(
 					"groupedlayercontrol-toggle-js",
-					f"https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v{__version__}/folium_layerscontrol_minimap/leaflet.groupedlayercontrol.toggle.js",
+					f"https://cdn.jsdelivr.net/gh/domdfcoding/folium-layercontrols@v{__version__}/folium_layercontrols/leaflet.groupedlayercontrol.toggle.js",
 					),
 			]

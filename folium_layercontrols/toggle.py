@@ -2,7 +2,7 @@
 #
 #  toggle.py
 """
-Customised minimap layer control that is shown/hidden on click rather than mouseover.
+Customised folium layer control that is shown/hidden on click rather than mouseover.
 """
 #
 #  Copyright © 2026 Dominic Davis-Foster <dominic@davis-foster.co.uk>
@@ -28,28 +28,56 @@ Customised minimap layer control that is shown/hidden on click rather than mouse
 #  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# 3rd party
+from folium import LayerControl
+from folium.elements import JSCSSMixin
+from folium.template import Template
+
 # this package
-from folium_layerscontrol_minimap import __version__
-from folium_layerscontrol_minimap.minimap import MinimapLayerControl
+from folium_layercontrols import __version__
 
-__all__ = ["ToggleMinimapLayerControl"]
+__all__ = ["MinimapLayerControl"]
 
 
-class ToggleMinimapLayerControl(MinimapLayerControl):
+class ToggleLayerControl(JSCSSMixin, LayerControl):
 	"""
-	Customised minimap layer control that is shown/hidden on click rather than mouseover.
+	Customised folium layer control that is shown/hidden on click rather than mouseover.
 	"""
 
-	control_class_name = "new L.Control.Layers.MinimapToggle"
-	default_js = MinimapLayerControl.default_js + [
+	control_class_name = "new L.Control.Layers.Toggle"
+
+	default_js = [
 			(
-					"layerscontrol-minimap-toggle-js",
-					f"https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v{__version__}/folium_layerscontrol_minimap/L.Control.Layers.Minimap.Toggle.min.js",
+					"layercontrol-toggle-js",
+					f"https://cdn.jsdelivr.net/gh/domdfcoding/folium-layercontrols@v{__version__}/folium_layercontrols/L.Control.Layers.Toggle.min.js",
 					),
 			]
-	default_css = MinimapLayerControl.default_css + [
-			(
-					"layerscontrol-minimap-toggle-css",
-					f"https://cdn.jsdelivr.net/gh/domdfcoding/folium-layerscontrol-minimap@v{__version__}/folium_layerscontrol_minimap/control.layers.minimap.min.css",
-					),
-			]
+
+	_template = Template(
+			"""
+		{% macro script(this,kwargs) %}
+			var {{ this.get_name() }}_layers = {
+				base_layers : {
+					{%- for key, val in this.base_layers.items() %}
+					{{ key|tojson }} : {{val}},
+					{%- endfor %}
+				},
+				overlays :  {
+					{%- for key, val in this.overlays.items() %}
+					{{ key|tojson }} : {{val}},
+					{%- endfor %}
+				},
+			};
+			let {{ this.get_name() }} = {{ this.control_class_name }}(
+				{{ this.get_name() }}_layers.base_layers,
+				{{ this.get_name() }}_layers.overlays,
+				{{ this.options|tojavascript }}
+			).addTo({{this._parent.get_name()}});
+
+			{%- if this.draggable %}
+			new L.Draggable({{ this.get_name() }}.getContainer()).enable();
+			{%- endif %}
+
+		{% endmacro %}
+		""".replace('\t', "    "),
+			)

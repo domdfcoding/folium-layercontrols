@@ -1,13 +1,13 @@
 # Configuration for 'repo_helper' (https://github.com/repo-helper/repo_helper)
 ---
-modname: 'folium-layerscontrol-minimap'
+modname: 'folium-layercontrols'
 copyright_years: '2026'
 author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
 username: 'domdfcoding'
 version: '0.1.0a1'
 license: 'BSD-2-Clause'
-short_desc: 'Folium addon for leaflet.layerscontrol-minimap'
+short_desc: 'Folium addon for custom layer controls'
 
 enable_conda: false
 enable_tests: false
@@ -23,8 +23,8 @@ python_versions:
 
 
 manifest_additional:
- - include folium_layerscontrol_minimap/*.js
- - include folium_layerscontrol_minimap/*.css
+ - include folium_layercontrols/*.js
+ - include folium_layercontrols/*.css
 
 extra_formate_deps:
  - formate-js>=0.1.0
